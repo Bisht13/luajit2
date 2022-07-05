@@ -2102,7 +2102,6 @@ static void build_subroutines(BuildCtx *ctx)
   |  cdfbr f1, r0
   |  didbr f0, f2, f1, mask // f0=remainder, f2=quotient.
   |  jnle >1
-  |  ldr f0, f1
   |  br r14
   |1: // partial remainder (sanity check)
   |  stg r0, 0
