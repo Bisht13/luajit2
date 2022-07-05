@@ -1563,6 +1563,15 @@ static void build_subroutines(BuildCtx *ctx)
   |
   |.macro math_round, func
   |  .ffunc math_ .. func
+  |  lg RB, 0(BASE)
+  |  ld f0, 0(BASE)
+  |  checknumx RB, ->fff_resRB, je
+  |  jh ->fff_fallback
+  |  brasl r14, ->vm_ .. func
+  |  cfdbr RB, 0, f0
+  |  jo ->fff_resf0
+  |  llgfr RB, RB
+  |  j ->fff_resi
   |.endmacro
   |
   |  math_round floor
@@ -2093,7 +2102,7 @@ static void build_subroutines(BuildCtx *ctx)
   |  cdfbr f1, r0
   |  didbr f0, f2, f1, mask // f0=remainder, f2=quotient.
   |  jnle >1
-  |  ldr f0, f2
+  |  ldr f0, f1
   |  br r14
   |1: // partial remainder (sanity check)
   |  stg r0, 0
