@@ -1562,6 +1562,7 @@ static void build_subroutines(BuildCtx *ctx)
   |  j ->vm_return
   |
   |.macro math_round, func
+  |  .ffunc math_ .. func
   |.endmacro
   |
   |  math_round floor
