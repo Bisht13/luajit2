@@ -2106,8 +2106,6 @@ static void build_subroutines(BuildCtx *ctx)
   |  br r14
   |1: // partial remainder (sanity check)
   |  stg r0, 0
-  |  ldr f0, f2
-  |  br r14
   |.endmacro
   |
   |  vm_round vm_floor, 7 // Round towards -inf.
