@@ -2100,9 +2100,10 @@ static void build_subroutines(BuildCtx *ctx)
   |->name:
   |  lghi r0, 1
   |  cdfbr f1, r0
+  |  ldr f0, f2
+  |  br r14
   |  didbr f0, f2, f1, mask // f0=remainder, f2=quotient.
   |  jnle >1
-  |  br r14
   |1: // partial remainder (sanity check)
   |  stg r0, 0
   |.endmacro
