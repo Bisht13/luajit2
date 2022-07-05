@@ -1561,21 +1561,6 @@ static void build_subroutines(BuildCtx *ctx)
   |  lghi RA, -16			// Results start at BASE+RA = BASE-16.
   |  j ->vm_return
   |
-  |.macro math_round, func
-  |  .ffunc math_ .. func
-  |  lg RB, 0(BASE)
-  |  ld f0, 0(BASE)
-  |  checknumx RB, ->fff_resRB, je
-  |  jh ->fff_fallback
-  |  brasl r14, ->vm_ .. func
-  |  cfdbr RB, 0, f0
-  |  jo ->fff_resf0
-  |  llgfr RB, RB
-  |  j ->fff_resi
-  |.endmacro
-  |
-  |  math_round floor
-  |  math_round ceil
   |
   |.ffunc math_log
   |  chi NARGS:RD, 1+1; jne ->fff_fallback	// Exactly one argument.
