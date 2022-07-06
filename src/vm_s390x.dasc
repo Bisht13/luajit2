@@ -2100,7 +2100,7 @@ static void build_subroutines(BuildCtx *ctx)
   |->name:
   |  lghi r0, 1
   |  cdfbr f1, r0
-  |  didbr f0, f2, f1, mask // f0=remainder, f2=quotient.
+  |  // didbr f0, f2, f1, mask // f0=remainder, f2=quotient.
   |  jnle >1
   |  ldr f0, f2
   |  br r14
