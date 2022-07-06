@@ -2102,7 +2102,7 @@ static void build_subroutines(BuildCtx *ctx)
   |  cdfbr f1, r0
   |  ldr f3, f0
   |  didbr f0, f2, f1, mask // f0=remainder, f2=quotient.
-  |  ldr f0, f2
+  |  ldr f0, f0
   |  br r14
   |.endmacro
   |
