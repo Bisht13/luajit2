@@ -2110,7 +2110,8 @@ static void build_subroutines(BuildCtx *ctx)
   |  vm_round vm_trunc, 5 // Round towards 0.
   |
   |// FP modulo x%y. Called by BC_MOD* and vm_arith.
-  |->vm_mod: // NYI.
+  |->vm_mod:
+  |  lgfi r0, 1337
   |  br r14
   |
   |//-----------------------------------------------------------------------
