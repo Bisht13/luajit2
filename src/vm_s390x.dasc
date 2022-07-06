@@ -2106,6 +2106,7 @@ static void build_subroutines(BuildCtx *ctx)
   |  jnle >1
   |  stg r0, 0
   |  ldr f0, f3
+  |  br r14
   |  1:
   |  br r14
   |.endmacro
