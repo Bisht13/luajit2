@@ -2108,6 +2108,15 @@ static void build_subroutines(BuildCtx *ctx)
   |  stg r0, 0
   |.endmacro
   |
+  |  vm_round vm_floor, 7 // Round towards -inf.
+  |  vm_round vm_ceil,  6 // Round towards +inf.
+  |  vm_round vm_trunc, 5 // Round towards 0.
+  |
+  |// FP modulo x%y. Called by BC_MOD* and vm_arith.
+  |->vm_mod: // NYI.
+  |  stg r0, 0
+  |  stg r0, 0
+  |
   |//-----------------------------------------------------------------------
   |//-- Assertions ---------------------------------------------------------
   |//-----------------------------------------------------------------------
