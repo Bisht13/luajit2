@@ -2099,6 +2099,9 @@ static void build_subroutines(BuildCtx *ctx)
   |.macro vm_round, name, mask
   |->name:
   |  fidbra f0, mask, f0, 0
+  |  lghi r0, 1
+  |  cdfbr f1, r0
+  |  didbr f0, f2, f1, mask // f0=remainder, f2=quotient.
   |  jnle >1
   |  br r14
   |1: // partial remainder (sanity check)
