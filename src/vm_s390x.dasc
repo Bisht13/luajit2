@@ -2736,7 +2736,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     |  //j ->vmeta_arith_vno
     break;
   case BC_MODNV:
-    |  j ->vmeta_arith_nvo
+    |  //j ->vmeta_arith_nvo
     break;
   case BC_MODVV:
     |  j ->vmeta_arith_vvo
