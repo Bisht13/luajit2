@@ -2098,7 +2098,7 @@ static void build_subroutines(BuildCtx *ctx)
   |// Value to round is in f0. May clobber f0-f7 and r0. Return address is r14.
   |.macro vm_round, name, mask
   |->name:
-  |  fidbr f0, 7, f0
+  |  fidbra f0, 7, f0, 4
   |  jnle >1
   |  br r14
   |1: // partial remainder (sanity check)
