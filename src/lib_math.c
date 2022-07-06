@@ -165,7 +165,7 @@ LJLIB_CF(math_random)		LJLIB_REC(.)
 #else
       double r2 = lj_lib_checknum(L, 2);
 #endif
-      //d = lj_vm_floor(d*(r2-r1+1.0)) + r1;  /* d is an int in range [r1, r2] */
+      d = lj_vm_floor(d*(r2-r1+1.0)) + r1;  /* d is an int in range [r1, r2] */
     }
 #if LJ_DUALNUM
     if (isint) {
