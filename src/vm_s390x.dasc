@@ -2736,7 +2736,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
   // x86_64 does floating point mod, however it might be better to use integer mod.
   case BC_MODVN:
     |  ins_arithpre
-    |  call ->vm_mod
+    |  brasl r14, ->vm_mod
     |  ins_next
     |  // j ->vmeta_arith_vno
     break;
