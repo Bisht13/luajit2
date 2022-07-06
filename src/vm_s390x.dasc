@@ -2105,6 +2105,7 @@ static void build_subroutines(BuildCtx *ctx)
   |  jle >1
   |  stg r0, 0
   |  ldr f0, f3
+  |  br r14
   |  1:
   |  ldr f0, f2
   |  br r14
