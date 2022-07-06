@@ -2737,6 +2737,9 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
   case BC_MODVN:
     |  ins_arithpre
     |  brasl r14, ->vm_mod
+    |  llgfr RB, RB
+    |  setint RB
+    |  stg RB, 0(RA, BASE)
     |  ins_next
     |  // j ->vmeta_arith_vno
     break;
