@@ -2111,7 +2111,7 @@ static void build_subroutines(BuildCtx *ctx)
   |
   |// FP modulo x%y. Called by BC_MOD* and vm_arith.
   |->vm_mod:
-  |  lgr r2, r6
+  |  lgr r2, f0
   |  br r14
   |
   |//-----------------------------------------------------------------------
