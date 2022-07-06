@@ -2112,8 +2112,6 @@ static void build_subroutines(BuildCtx *ctx)
   |// FP modulo x%y. Called by BC_MOD* and vm_arith.
   |->vm_mod: // NYI.
   |  br r14
-  |  stg r0, 0
-  |  stg r0, 0
   |
   |//-----------------------------------------------------------------------
   |//-- Assertions ---------------------------------------------------------
