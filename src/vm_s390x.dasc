@@ -2109,6 +2109,12 @@ static void build_subroutines(BuildCtx *ctx)
   |  vm_round vm_ceil,  6 // Round towards +inf.
   |  vm_round vm_trunc, 5 // Round towards 0.
   |
+  |// FP modulo x%y. Called by BC_MOD* and vm_arith.
+  |->vm_mod: // NYI.
+  |  br r14
+  |  stg r0, 0
+  |  stg r0, 0
+  |
   |//-----------------------------------------------------------------------
   |//-- Assertions ---------------------------------------------------------
   |//-----------------------------------------------------------------------
@@ -2671,6 +2677,10 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     |  ins_next
     |.endmacro
 
+    |//.macro ins_arithpost
+    |//  stg RB, 0(RA, BASE)
+    |//.endmacro
+
     |  // RA = dst, RB = src1 or num const, RC = src2 or num const
   case BC_ADDVN: case BC_ADDNV: case BC_ADDVV:
     |  ins_arithdn ar
@@ -2725,7 +2735,10 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
   // TODO: implement fast mod operation.
   // x86_64 does floating point mod, however it might be better to use integer mod.
   case BC_MODVN:
-    |  j ->vmeta_arith_vno
+    |  ins_arithpre
+    |  call ->vm_mod
+    |  ins_next
+    |  // j ->vmeta_arith_vno
     break;
   case BC_MODNV:
     |  j ->vmeta_arith_nvo
