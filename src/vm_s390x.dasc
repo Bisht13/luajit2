@@ -2109,16 +2109,6 @@ static void build_subroutines(BuildCtx *ctx)
   |  vm_round vm_ceil,  6 // Round towards +inf.
   |  vm_round vm_trunc, 5 // Round towards 0.
   |
-  |// FP modulo x%y. Called by BC_MOD* and vm_arith.
-  |->vm_mod: // NYI.
-  |  lghi r0, 1
-  |  // didbr f0, f2, f3, 0
-  |  // jnle >1
-  |  br r14
-  |1: // partial remainder (sanity check) 
-  |  stg r0, 0
-  |  stg r0, 0
-  |
   |//-----------------------------------------------------------------------
   |//-- Assertions ---------------------------------------------------------
   |//-----------------------------------------------------------------------
