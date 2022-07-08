@@ -2149,8 +2149,6 @@ static void build_subroutines(BuildCtx *ctx)
   |  stg RC, CTSTATE->cb.slot
   |  
   |  la RC, CFRAME_SIZE(sp)
-  |  stg CARG5, CTSTATE->cb.gpr[4]
-  |  stg CARG6, CTSTATE->cb.gpr[5]
   |  
   |
   |
