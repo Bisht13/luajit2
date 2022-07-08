@@ -2681,10 +2681,6 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     |  ins_next
     |.endmacro
 
-    |//.macro ins_arithpost
-    |//  stg RB, 0(RA, BASE)
-    |//.endmacro
-
     |  // RA = dst, RB = src1 or num const, RC = src2 or num const
   case BC_ADDVN: case BC_ADDNV: case BC_ADDVV:
     |  ins_arithdn ar
