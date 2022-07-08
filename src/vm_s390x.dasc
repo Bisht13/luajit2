@@ -2149,7 +2149,7 @@ static void build_subroutines(BuildCtx *ctx)
   |  stg RC, CTSTATE->cb.slot
   |  
   |  la RC, CFRAME_SIZE(sp)
-  |  
+  |.endif
   |
   |
   |
