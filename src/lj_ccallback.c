@@ -572,7 +572,7 @@ void lj_ccallback_mcode_free(CTState *cts)
     ((float *)dp)[1] = *(float *)dp;
 
 #elif LJ_TARGET_S390X
-#error "Missing calling convention definitions for this architecture"
+
 #define CALLBACK_HANDLE_REGARG \
   if (isfp) { \
     if (nfpr < CCALL_NARG_FPR) { sp = &cts->cb.fpr[nfpr++]; goto done; } \
