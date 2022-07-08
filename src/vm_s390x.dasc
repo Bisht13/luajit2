@@ -2737,18 +2737,13 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
   // TODO: implement fast mod operation.
   // x86_64 does floating point mod, however it might be better to use integer mod.
   case BC_MODVN:
-    |  ins_arithpre
-    |->BC_MODVN_Z:
-    |  brasl r14, ->vm_mod
-    |  llgfr RB, RB
-    |  setint RB
-    |  stg RB, 0(RA, BASE)
-    |  ins_next
-    |  // j ->vmeta_arith_vno
+    |  j ->vmeta_arith_vno
     break;
-  case BC_MODNV: case BC_MODVV:
-    |  ins_arithpre
-    |  j ->BC_MODVN_Z
+  case BC_MODNV:
+    |  j ->vmeta_arith_nvo
+    break;
+  case BC_MODVV:
+    |  j ->vmeta_arith_vvo
     break;
   case BC_POW:
     |  ins_ABC
