@@ -545,7 +545,6 @@ static int pmain(lua_State *L)
   s->status = runargs(L, argv, argn);
   if (s->status != LUA_OK) return 0;
 
-  printf("312asd\n");
   if (s->argc > argn) {
     s->status = handle_script(L, argv + argn);
     if (s->status != LUA_OK) return 0;
@@ -568,6 +567,7 @@ static int pmain(lua_State *L)
 
 int main(int argc, char **argv)
 {
+  printf("312asd\n");
   int status;
   lua_State *L;
   if (!argv[0]) argv = empty_argv; else if (argv[0][0]) progname = argv[0];
