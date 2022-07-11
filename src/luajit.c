@@ -310,7 +310,7 @@ static int loadjitmodule(lua_State *L)
   lua_getfield(L, -1, "start");
   if (lua_isnil(L, -1)) {
   nomodule:
-    l_message("unknown luaJIT command or jit.* modules not installed");
+    l_message("unknown luaJIT command or jit.* modules not installed, hmmmm");
     return 1;
   }
   lua_remove(L, -2);  /* Drop module table. */
