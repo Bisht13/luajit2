@@ -1129,6 +1129,7 @@ LUA_API void lua_call(lua_State *L, int nargs, int nresults)
 
 LUA_API int lua_pcall(lua_State *L, int nargs, int nresults, int errfunc)
 {
+  printf("hello");
   global_State *g = G(L);
   uint8_t oldh = hook_save(g);
   ptrdiff_t ef;

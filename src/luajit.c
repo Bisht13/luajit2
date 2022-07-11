@@ -304,7 +304,6 @@ static int loadjitmodule(lua_State *L)
   if (lua_pcall(L, 1, 1, 0)) {
     const char *msg = lua_tostring(L, -1);
     if (msg && !strncmp(msg, "module ", 7)){
-      printf("%s",msg);
       goto nomodule;}
     return report(L, 1);
   }
