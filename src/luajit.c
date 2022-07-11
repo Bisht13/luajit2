@@ -534,13 +534,13 @@ static int pmain(lua_State *L)
   luaL_openlibs(L);
   lua_gc(L, LUA_GCRESTART, -1);
 
-  printf("312asd\n");
   createargtable(L, argv, s->argc, argn);
 
   if (!(flags & FLAGS_NOENV)) {
     s->status = handle_luainit(L);
     if (s->status != LUA_OK) return 0;
   }
+  printf("312asd\n");
 
   if ((flags & FLAGS_VERSION)) print_version();
   s->status = runargs(L, argv, argn);
