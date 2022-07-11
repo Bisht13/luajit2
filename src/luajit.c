@@ -310,7 +310,7 @@ static int loadjitmodule(lua_State *L)
   lua_getfield(L, -1, "start");
   if (lua_isnil(L, -1)) {
   nomodule:
-    l_message("unknown luaJIT command or jit.* modules not installed, hmmmm");
+    l_message("unknown luaJIT command or jit.* modules not installed");
     return 1;
   }
   lua_remove(L, -2);  /* Drop module table. */
@@ -542,10 +542,10 @@ static int pmain(lua_State *L)
   }
 
   if ((flags & FLAGS_VERSION)) print_version();
-
   s->status = runargs(L, argv, argn);
   if (s->status != LUA_OK) return 0;
 
+  printf("312asd\n");
   if (s->argc > argn) {
     s->status = handle_script(L, argv + argn);
     if (s->status != LUA_OK) return 0;
