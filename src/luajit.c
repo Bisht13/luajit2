@@ -350,6 +350,7 @@ static int dojitcmd(lua_State *L, const char *cmd)
   lua_remove(L, -2);
   lua_pushvalue(L, -2);
   lua_gettable(L, -2);  /* Lookup library function. */
+  printf("312asd\n");
   if (!lua_isfunction(L, -1)) {
     lua_pop(L, 2);  /* Drop non-function and jit.* table, keep module name. */
     if (loadjitmodule(L))
@@ -358,7 +359,6 @@ static int dojitcmd(lua_State *L, const char *cmd)
     lua_remove(L, -2);  /* Drop jit.* table. */
   }
   lua_remove(L, -2);  /* Drop module name. */
-  printf("312asd\n");
   return runcmdopt(L, opt ? opt+1 : opt);
 }
 
