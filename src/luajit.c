@@ -297,6 +297,7 @@ static int handle_script(lua_State *L, char **argx)
 /* Load add-on module. */
 static int loadjitmodule(lua_State *L)
 {
+    printf("312asd\n");
   lua_getglobal(L, "require");
   lua_pushliteral(L, "jit.");
   lua_pushvalue(L, -3);
@@ -350,14 +351,11 @@ static int dojitcmd(lua_State *L, const char *cmd)
   lua_remove(L, -2);
   lua_pushvalue(L, -2);
   lua_gettable(L, -2);  /* Lookup library function. */
-  printf("1\n");
   if (!lua_isfunction(L, -1)) {
-  printf("2\n");
     lua_pop(L, 2);  /* Drop non-function and jit.* table, keep module name. */
     if (loadjitmodule(L))
       return 1;
   } else {
-    printf("3\n");
     lua_remove(L, -2);  /* Drop jit.* table. */
   }
   lua_remove(L, -2);  /* Drop module name. */
