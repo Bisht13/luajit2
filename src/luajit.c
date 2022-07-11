@@ -510,6 +510,7 @@ static struct Smain {
 
 static int pmain(lua_State *L)
 {
+  printf("312asd\n");
   struct Smain *s = &smain;
   char **argv = s->argv;
   int argn;
@@ -578,7 +579,6 @@ int main(int argc, char **argv)
   smain.argc = argc;
   smain.argv = argv;
   status = lua_cpcall(L, pmain, NULL);
-  printf("312asd\n");
   report(L, status);
   lua_close(L);
   return (status || smain.status > 0) ? EXIT_FAILURE : EXIT_SUCCESS;
