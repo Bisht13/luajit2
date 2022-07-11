@@ -710,6 +710,7 @@ end
 
 -- Dispatch to handler depending on pattern.
 local function dispatch(ctx, opat, patgrp)
+  print("asd")
   if not opat then return unknown(ctx) end
   if match(opat, "%|") then -- MMX/SSE variants depending on prefix.
     local p

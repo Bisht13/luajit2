@@ -144,10 +144,11 @@ local function dump_mcode(tr)
   if not mcode then return end
   if not disass then disass = require("jit.dis_"..jit.arch) end
   if addr < 0 then addr = addr + 2^32 end
-  out:write("---- TRACE ", tr, " mcode ", #mcode, "\n")
+  out:write("---- TRACE REallly ", tr, " mcode ", #mcode, "\n")
   local ctx = disass.create(mcode, addr, dumpwrite)
   ctx.hexdump = 0
   ctx.symtab = fillsymtab(tr, info.nexit)
+  print(info.nexit)
   if loop ~= 0 then
     symtab[addr+loop] = "LOOP"
     ctx:disass(0, loop)
