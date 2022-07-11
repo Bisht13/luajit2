@@ -297,15 +297,15 @@ static int handle_script(lua_State *L, char **argx)
 /* Load add-on module. */
 static int loadjitmodule(lua_State *L)
 {
-    printf("312asd\n");
   lua_getglobal(L, "require");
   lua_pushliteral(L, "jit.");
   lua_pushvalue(L, -3);
   lua_concat(L, 2);
   if (lua_pcall(L, 1, 1, 0)) {
     const char *msg = lua_tostring(L, -1);
-    if (msg && !strncmp(msg, "module ", 7))
-      goto nomodule;
+    if (msg && !strncmp(msg, "module ", 7)){
+      printf("312asd\n");
+      goto nomodule;}
     return report(L, 1);
   }
   lua_getfield(L, -1, "start");
