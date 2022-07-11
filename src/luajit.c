@@ -510,7 +510,6 @@ static struct Smain {
 
 static int pmain(lua_State *L)
 {
-  printf("312asd\n");
   struct Smain *s = &smain;
   char **argv = s->argv;
   int argn;
@@ -535,6 +534,7 @@ static int pmain(lua_State *L)
   luaL_openlibs(L);
   lua_gc(L, LUA_GCRESTART, -1);
 
+  printf("312asd\n");
   createargtable(L, argv, s->argc, argn);
 
   if (!(flags & FLAGS_NOENV)) {
