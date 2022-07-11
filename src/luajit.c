@@ -540,9 +540,9 @@ static int pmain(lua_State *L)
     s->status = handle_luainit(L);
     if (s->status != LUA_OK) return 0;
   }
-  printf("312asd\n");
 
   if ((flags & FLAGS_VERSION)) print_version();
+  printf("312asd\n");
   s->status = runargs(L, argv, argn);
   if (s->status != LUA_OK) return 0;
 
