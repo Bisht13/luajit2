@@ -343,6 +343,7 @@ static int runcmdopt(lua_State *L, const char *opt)
 /* JIT engine control command: try jit library first or load add-on module. */
 static int dojitcmd(lua_State *L, const char *cmd)
 {
+  printf("312asd\n");
   const char *opt = strchr(cmd, '=');
   lua_pushlstring(L, cmd, opt ? (size_t)(opt - cmd) : strlen(cmd));
   lua_getfield(L, LUA_REGISTRYINDEX, "_LOADED");
@@ -543,7 +544,6 @@ static int pmain(lua_State *L)
 
   if ((flags & FLAGS_VERSION)) print_version();
   s->status = runargs(L, argv, argn);
-  printf("312asd\n");
   if (s->status != LUA_OK) return 0;
 
   if (s->argc > argn) {
