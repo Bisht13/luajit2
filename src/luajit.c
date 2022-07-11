@@ -567,7 +567,6 @@ static int pmain(lua_State *L)
 
 int main(int argc, char **argv)
 {
-  printf("312asd\n");
   int status;
   lua_State *L;
   if (!argv[0]) argv = empty_argv; else if (argv[0][0]) progname = argv[0];
@@ -578,6 +577,7 @@ int main(int argc, char **argv)
   }
   smain.argc = argc;
   smain.argv = argv;
+  printf("312asd\n");
   status = lua_cpcall(L, pmain, NULL);
   report(L, status);
   lua_close(L);
