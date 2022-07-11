@@ -1129,7 +1129,6 @@ LUA_API void lua_call(lua_State *L, int nargs, int nresults)
 
 LUA_API int lua_pcall(lua_State *L, int nargs, int nresults, int errfunc)
 {
-  printf("hello");
   global_State *g = G(L);
   uint8_t oldh = hook_save(g);
   ptrdiff_t ef;
@@ -1144,6 +1143,7 @@ LUA_API int lua_pcall(lua_State *L, int nargs, int nresults, int errfunc)
     ef = savestack(L, o);
   }
   status = lj_vm_pcall(L, api_call_base(L, nargs), nresults+1, ef);
+  printf("hello, %d", status);
   if (status) hook_restore(g, oldh);
   return status;
 }
