@@ -343,7 +343,6 @@ static int runcmdopt(lua_State *L, const char *opt)
 /* JIT engine control command: try jit library first or load add-on module. */
 static int dojitcmd(lua_State *L, const char *cmd)
 {
-  printf("312asd\n");
   const char *opt = strchr(cmd, '=');
   lua_pushlstring(L, cmd, opt ? (size_t)(opt - cmd) : strlen(cmd));
   lua_getfield(L, LUA_REGISTRYINDEX, "_LOADED");
@@ -359,6 +358,7 @@ static int dojitcmd(lua_State *L, const char *cmd)
     lua_remove(L, -2);  /* Drop jit.* table. */
   }
   lua_remove(L, -2);  /* Drop module name. */
+  printf("312asd\n");
   return runcmdopt(L, opt ? opt+1 : opt);
 }
 
