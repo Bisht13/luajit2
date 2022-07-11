@@ -542,8 +542,8 @@ static int pmain(lua_State *L)
   }
 
   if ((flags & FLAGS_VERSION)) print_version();
-  printf("312asd\n");
   s->status = runargs(L, argv, argn);
+  printf("312asd\n");
   if (s->status != LUA_OK) return 0;
 
   if (s->argc > argn) {
