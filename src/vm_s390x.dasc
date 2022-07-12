@@ -265,17 +265,17 @@
 |.endmacro
 |
 |// Decrement hashed hotcount and trigger trace recorder if zero.
-|.macro hotloop, reg
-|  lgr reg, PC   
-|  srlg reg, reg, 1
-|  nill reg, HOTCOUNT_PCMASK 
-|  afi reg, GG_DISP2HOT
-|  agr reg, DISPATCH
-|  lg TMPR1, (reg) 
-|  aghi TMPR1, -HOTCOUNT_LOOP 
-|  stg TMPR1, (reg) 
-|  jl ->vm_hotloop
-|.endmacro
+|// .macro hotloop, reg
+|//   lgr reg, PC   
+|//   srlg reg, reg, 1
+|//   nill reg, HOTCOUNT_PCMASK 
+|//   afi reg, GG_DISP2HOT
+|//   agr reg, DISPATCH
+|//   lg TMPR1, (reg) 
+|//   aghi TMPR1, -HOTCOUNT_LOOP 
+|//   stg TMPR1, (reg) 
+|//   jl ->vm_hotloop
+|// .endmacro
 |
 |// Set current VM state.
 |.macro set_vmstate, st
