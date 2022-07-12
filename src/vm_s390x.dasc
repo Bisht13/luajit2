@@ -3556,7 +3556,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
 
   case BC_ITERN:
     |.if JIT
-    |  hotloop RB // NYI: add hotloop, record BC_ITERN.
+    |  // hotloop RB // NYI: add hotloop, record BC_ITERN.
     |.endif
     |->vm_IITERN:
     |  ins_A	// RA = base, (RB = nresults+1, RC = nargs+1 (2+1))
