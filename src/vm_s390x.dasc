@@ -3801,12 +3801,13 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
   |.define FOR_EXT,  24(RA)
 
   case BC_FORL:
+  {
     |.if JIT
     |  hotloop RB
     |.endif
     | // Fall through. Assumes BC_IFORL follows and ins_AJ is a no-op.
-    |
     break;
+  }
 
   case BC_JFORI:
   case BC_JFORL:
