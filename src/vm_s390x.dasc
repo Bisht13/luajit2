@@ -264,6 +264,17 @@
 |  lay PC, (-BCBIAS_J*4)(TMPR1, PC)
 |.endmacro
 |
+|// Decrement hashed hotcount and trigger trace recorder if zero.
+|.macro hotloop, reg
+|  lg reg, PC   
+|  srlg reg, reg, 1
+|  nill reg, HOTCOUNT_PCMASK 
+|  afi reg, GG_DISP2HOT
+|  lg TMPR1, reg(DISPATCH) 
+|  aghi TMPR1, -HOTCOUNT_LOOP 
+|  stg TMPR1, reg(DISPATCH) 
+|  jl ->vm_hotloop
+|
 |// Set current VM state.
 |.macro set_vmstate, st
 |  lghi TMPR1, ~LJ_VMST_..st
