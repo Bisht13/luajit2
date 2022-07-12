@@ -3940,7 +3940,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
 
   case BC_ITERL:
     |.if JIT
-    |  hotloop RB
+    |  // hotloop RB
     |.endif
     | // Fall through. Assumes BC_IITERL follows and ins_AJ is a no-op.
     break;
@@ -3971,7 +3971,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     |  // Note: RA/RD is only used by trace recorder to determine scope/extent
     |  // This opcode does NOT jump, it's only purpose is to detect a hot loop.
     |.if JIT
-    |  hotloop RB
+    |  // hotloop RB
     |.endif
     | // Fall through. Assumes BC_ILOOP follows and ins_A is a no-op.
     break;
