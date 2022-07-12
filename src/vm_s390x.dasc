@@ -2169,16 +2169,16 @@ static void build_subroutines(BuildCtx *ctx)
   |
   |// Handler for callback functions. Callback slot number in ah/al.
   |->vm_ffi_callback:
-  |.if FFI
-  |.type CTSTATE, CTState, PC
-  |  saveregs
-  |  la DISPATCH, GG_G2DISP(RB)
-  |  lg CTSTATE, GL:RB->ctype_state
-  |  llgcr RC, RC
-  |  stg RC, CTSTATE->cb.slot
-  |  
-  |  la RC, CFRAME_SIZE(sp)
-  |.endif
+  |// .if FFI
+  |// .type CTSTATE, CTState, PC
+  |//   saveregs
+  |//   la DISPATCH, GG_G2DISP(RB)
+  |//   lg CTSTATE, GL:RB->ctype_state
+  |//   llgcr RC, RC
+  |//   stg RC, CTSTATE->cb.slot
+  |//   
+  |//   la RC, CFRAME_SIZE(sp)
+  |// .endif
   |
   |
   |
