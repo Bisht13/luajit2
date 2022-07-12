@@ -266,7 +266,7 @@
 |
 |// Decrement hashed hotcount and trigger trace recorder if zero.
 |.macro hotloop, reg
-|  lg reg, PC   
+|  lgr reg, PC   
 |  srlg reg, reg, 1
 |  nill reg, HOTCOUNT_PCMASK 
 |  afi reg, GG_DISP2HOT
