@@ -273,7 +273,7 @@
 |  agr reg, DISPATCH
 |  lg TMPR1, (reg) 
 |  aghi TMPR1, -HOTCOUNT_LOOP 
-|  stg TMPR1, reg(DISPATCH) 
+|  stg TMPR1, (reg) 
 |  jl ->vm_hotloop
 |.endmacro
 |
