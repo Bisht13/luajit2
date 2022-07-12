@@ -2143,7 +2143,8 @@ static void build_subroutines(BuildCtx *ctx)
   |
   |->vm_next:
   |.if JIT
-  |  NYI  // On big-endian.
+  |  stg r0, 0 // NYI On big-endian.
+  |  stg r0, 0
   |.endif
   |
   |//-----------------------------------------------------------------------
