@@ -270,7 +270,8 @@
 |  srlg reg, reg, 1
 |  nill reg, HOTCOUNT_PCMASK 
 |  afi reg, GG_DISP2HOT
-|  lg TMPR1, reg(DISPATCH) 
+|  agr reg, DISPATCH
+|  lg TMPR1, (reg) 
 |  aghi TMPR1, -HOTCOUNT_LOOP 
 |  stg TMPR1, reg(DISPATCH) 
 |  jl ->vm_hotloop
