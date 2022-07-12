@@ -274,6 +274,7 @@
 |  aghi TMPR1, -HOTCOUNT_LOOP 
 |  stg TMPR1, reg(DISPATCH) 
 |  jl ->vm_hotloop
+|.endmacro
 |
 |// Set current VM state.
 |.macro set_vmstate, st
