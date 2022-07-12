@@ -2043,23 +2043,23 @@ static void build_subroutines(BuildCtx *ctx)
   |  stg r0, 0
   |
   |->vm_hotloop:			// Hot loop counter underflow.
-  |.if JIT
-  |  lg LFUNC:RB, -16(BASE) 
-  |  cleartp LFUNC:RB 
-  |  lg RB, LFUNC:RB->pc 
-  |  llgc RD, (PC2PROTO(framesize))(RB) 
-  |  sllg RD, RD, 3
-  |  la RD, 0(RD, BASE)
-  |  lg L:RB, SAVE_L
-  |  stg BASE, L:RB->base
-  |  stg RD, L:RB->top 
-  |  lgr CARG2, PC
-  |  la CARG1, GG_DISP2J(DISPATCH)
-  |  stg L:RB, (DISPATCH_J(L))(DISPATCH)
-  |  stg PC, SAVE_PC
-  |  brasl r14, extern lj_trace_hot		// (jit_State *J, const BCIns *pc)
-  |  j <3
-  |.endif  
+  |// .if JIT
+  |//   lg LFUNC:RB, -16(BASE) 
+  |//   cleartp LFUNC:RB 
+  |//   lg RB, LFUNC:RB->pc 
+  |//   llgc RD, (PC2PROTO(framesize))(RB) 
+  |//   sllg RD, RD, 3
+  |//   la RD, 0(RD, BASE)
+  |//   lg L:RB, SAVE_L
+  |//   stg BASE, L:RB->base
+  |//   stg RD, L:RB->top 
+  |//   lgr CARG2, PC
+  |//   la CARG1, GG_DISP2J(DISPATCH)
+  |//   stg L:RB, (DISPATCH_J(L))(DISPATCH)
+  |//   stg PC, SAVE_PC
+  |//   brasl r14, extern lj_trace_hot		// (jit_State *J, const BCIns *pc)
+  |//   j <3
+  |// .endif  
   |    
   |->vm_callhook:			// Dispatch target for call hooks.
   |  stg PC, SAVE_PC
