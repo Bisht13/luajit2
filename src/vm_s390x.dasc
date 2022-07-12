@@ -2064,13 +2064,13 @@ static void build_subroutines(BuildCtx *ctx)
   |->vm_callhook:			// Dispatch target for call hooks.
   |  stg PC, SAVE_PC
   |.if JIT
-  |  j >1
+  |//  j >1
   |.endif
   |
   |->vm_hotcall:			// Hot call counter underflow.
   |.if JIT
-  |  stg PC, SAVE_PC
-  |  oill PC, 1				// Marker for hot call.
+  |//  stg PC, SAVE_PC
+  |//  oill PC, 1				// Marker for hot call.
   |1:
   |.endif
   |  sllg RD, NARGS:RD, 3
@@ -2085,7 +2085,7 @@ static void build_subroutines(BuildCtx *ctx)
   |  lghi TMPR0, 0
   |  stg TMPR0, SAVE_PC			// Invalidate for subsequent line hook.
   |.if JIT
-  |  nill PC, -2
+  |//  nill PC, -2
   |.endif
   |  lg BASE, L:RB->base
   |  lg RD, L:RB->top
@@ -2159,8 +2159,8 @@ static void build_subroutines(BuildCtx *ctx)
   |
   |->vm_next:
   |.if JIT
-  |  stg r0, 0 // NYI On big-endian.
-  |  stg r0, 0
+  |//  stg r0, 0 // NYI On big-endian.
+  |//  stg r0, 0
   |.endif
   |
   |//-----------------------------------------------------------------------
@@ -4003,7 +4003,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
 
   case BC_FUNCF:
     |.if JIT
-    |  stg r0, 0
+    |//  stg r0, 0
     |.endif
   case BC_FUNCV:  /* NYI: compiled vararg functions. */
     | // Fall through. Assumes BC_IFUNCF/BC_IFUNCV follow and ins_AD is a no-op.
