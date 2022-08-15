@@ -2042,7 +2042,7 @@ static void build_subroutines(BuildCtx *ctx)
   |  stg r0, 0
   |  stg r0, 0
   |
-  |->vm_hotloop:			// Hot loop counter underflow.
+  |// ->vm_hotloop:			// Hot loop counter underflow.
   |// .if JIT
   |//   lg LFUNC:RB, -16(BASE) 
   |//   cleartp LFUNC:RB 
