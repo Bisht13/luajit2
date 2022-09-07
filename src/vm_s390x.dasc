@@ -3802,9 +3802,9 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
 
   case BC_FORL:
   {
-    |// .if JIT
-    |//  hotloop RB
-    |// .endif
+    |.if JIT
+    |  hotloop RB
+    |.endif
     | // Fall through. Assumes BC_IFORL follows and ins_AJ is a no-op.
     break;
   }
