@@ -2071,7 +2071,7 @@ static void build_subroutines(BuildCtx *ctx)
   |.if JIT
   |  stg PC, SAVE_PC
   |  oill PC, 1				// Marker for hot call.
-  | 1:
+  |1:
   |.endif
   |  sllg RD, NARGS:RD, 3
   |  lay RD, -8(RD, BASE)
